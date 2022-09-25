@@ -4,31 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FIT3179 week4</title>
+    <title>Yanqi Zhu week 9 Homework - global plastic waste emitted to the ocean</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+    <script src="mycode.js"></script>
+    <link href="style.css" type="text/css" media="all" rel="stylesheet">
 </head>
 <body>
-    <h1>Heading 1</h1>
-    <p>My First Paragraph</p>
-    <p>
-        <table>
-            <tr style="color: red;">
-                <th>Name</th>
-                <th>Unit</th>
-            </tr>
-            <tr>
-                <td>John</td>
-                <td>FIT3179</td>
-            </tr>
-            <tr>
-                <td>Jane</td>
-                <td>FIT3182</td>
-            </tr>
-        </table>
-    </p>
-    <img src="leaopard.jpg"/>
-    <div style="color: red;">
-        <a href="https://www.monash.edu/"><input type="button" value="Submit" name="send"/>
-        </a>
-    </div>
+    <h1>Yanqi Zhu week 9 Homework - global plastic waste emitted to the ocean</h1>
+    <div id="map1"></div>
+    <script type="text/javascript">
+
+        var spec2 = "waste.vg.json";
+        vegaEmbed('#map1', spec2).then(function(result) {
+          // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+      </script>
 </body>
 </html>
