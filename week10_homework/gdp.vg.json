@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Global plastic waste by disposal, 2000 to 2015",
+    "title": "Global plastic waste by disposal(%), 2000 to 2015",
     "width": 500,
         "height": 500,
     "params": 
