@@ -45,7 +45,7 @@
             "x":{
                 "field": "Entity",
                 "type":"nominal",
-                "axis": {"tickCount": 4}
+                "axis": {"tickCount": 4}, "title": "Type of waste"
               },
               "y":{
                 "field": "Estimated historic plastic fate",
@@ -53,7 +53,7 @@
                 "axis": {"tickCount": 3, "grid": false}
               },
               "tooltip": [
-                {"field": "Entity", "type": "ordinal", "title": "type of waste"},
+                {"field": "Entity", "type": "ordinal", "title": "Type of waste"},
                 {
                   "field": "Estimated historic plastic fate",
                   "type": "quantitative",
