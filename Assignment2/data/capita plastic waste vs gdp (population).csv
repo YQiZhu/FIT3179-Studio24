@@ -1,4 +1,4 @@
-"Entity","Code","Year","Per.capita.plastic.waste..kg.person.day.","GDP.per.capita..PPP..constant.2017.international...","Population..historical.estimates.","Continent"
+"Entity","Code","Year","Per_capita_plastic_waste_kg_person_day_","GDP_per_capita","Population","Continent"
 "Afghanistan","AFG",2010,NA,1957.02905273438,28189672,"Asia"
 "Africa","",2010,NA,NA,1055233717,""
 "Albania","ALB",2010,0.069,10749.4814453125,2913402,"Europe"
