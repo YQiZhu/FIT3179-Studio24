@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global plastic waste </title>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+  <script src="mycode.js"></script>
+  <link href="style.css" type="text/css" media="all" rel="stylesheet">
+</head>
+
+<body>
+  <h1>global plastic waste</h1>
+  <p></p>
+
+  <div id="bubblechart" style="width: 70%;"></div>
+  <p> </p>
+  <div id="bar1" style="width: 70%;"></div>
+  <p> </p>
+  <div id="map1" style="width: 70%;"></div>
+  <p> </p>
+  <div id="map2" style="width: 70%;"></div>
+
+  <script type="text/javascript">
+
+    var spec2 = "plastic_waste.vg.json";
+    vegaEmbed('#msp2', spec2).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+  </script>
+
+  <script type="text/javascript">
+
+    var spec2 = "gdp.vg.json";
+    vegaEmbed('#bubblechart', spec2).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+  </script>
+
+  <script type="text/javascript">
+
+    var spec2 = "waste_generated_treated.vg.json";
+    vegaEmbed('#bar1', spec2).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+  </script>
+
+  <script type="text/javascript">
+
+    var spec2 = "waste.vg.json";
+    vegaEmbed('#map1', spec2).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+  </script>
+
+
+  </script>
+</body>
+
+</html>

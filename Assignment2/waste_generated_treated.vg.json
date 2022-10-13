@@ -1,0 +1,80 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Waste Generated vs Treated",
+    "color": "black"
+  },
+  "width": "container",
+  "height": 500,
+  "params": [
+    {
+      "name": "Year_selection",
+      "value": 2010,
+      "bind": {
+        "input": "range",
+        "min": 2010,
+        "max": 2019,
+        "step": 1,
+        "name": "Year :  "
+      }
+    }
+  ],
+  "data": {
+    "url": "https://raw.githubusercontent.com/YQiZhu/FIT3179-Studio24/main/Assignment2/data/waste%20generated%20vs%20treated%20(tones).csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.Year == Year_selection"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "Country",
+      "title": "Country"
+    },
+    "y": {
+      "field": "Value",
+      "type": "quantitative",
+      "title": "Value"
+    },
+    "xOffset": {
+      "field": "Variable"
+    },
+    "color": {
+      "field": "Variable"
+    },
+    "tooltip": [
+      {
+        "field": "Country",
+        "type": "ordinal",
+        "title": "Country"
+      },
+      {
+        "field": "Value",
+        "type": "quantitative",
+        "title": "Value",
+        "format": ","
+      },
+      {
+        "field": "Variable",
+        "type": "ordinal",
+        "title": "Variable",
+        "format": ","
+      },
+      {
+        "field": "Year",
+        "type": "quantitative",
+        "title": "Year"
+      }
+    ]
+  },
+  "mark": {
+    "type": "bar"
+  },
+  "config": {
+    "title": {
+      "font": "sans-serif",
+      "fontSize": 16
+    }
+  }
+}
