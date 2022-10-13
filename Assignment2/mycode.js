@@ -10,3 +10,6 @@ vegaEmbed("#bar1", vg_3).then(function (result) {
 var vg_4 = "plastic_waste.vg.json";
 vegaEmbed("#map2", vg_4).then(function (result) {
 }).catch(console.error);
+var vg_5 = "plastic_disposal.vg.json";
+vegaEmbed("#bar2", vg_5).then(function (result) {
+}).catch(console.error);
