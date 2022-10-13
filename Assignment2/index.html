@@ -24,11 +24,21 @@
   <div id="map1" style="width: 70%;"></div>
   <p> </p>
   <div id="map2" style="width: 70%;"></div>
+  <p> </p>
+  <div id="bar2" style="width: 70%;"></div>
+
+  <script type="text/javascript">
+
+    var spec2 = "plastic_disposal.vg.json";
+    vegaEmbed('#bar2', spec2).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+  </script>
 
   <script type="text/javascript">
 
     var spec2 = "plastic_waste.vg.json";
-    vegaEmbed('#msp2', spec2).then(function (result) {
+    vegaEmbed('#map2', spec2).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
   </script>
