@@ -1,9 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": {
-    "text": "Waste Generated vs Treated",
-    "color": "black"
-  },
+  "title": {"text": "Waste Generated vs Treated", "color": "black"},
   "width": "container",
   "height": 500,
   "params": [
@@ -22,33 +19,14 @@
   "data": {
     "url": "https://raw.githubusercontent.com/YQiZhu/FIT3179-Studio24/main/Assignment2/data/waste%20generated%20vs%20treated%20(tones).csv"
   },
-  "transform": [
-    {
-      "filter": "datum.Year == Year_selection"
-    }
-  ],
+  "transform": [{"filter": "datum.Year == Year_selection"}],
   "encoding": {
-    "x": {
-      "field": "Country",
-      "title": "Country"
-    },
-    "y": {
-      "field": "Value",
-      "type": "quantitative",
-      "title": "Value"
-    },
-    "xOffset": {
-      "field": "Variable"
-    },
-    "color": {
-      "field": "Variable"
-    },
+    "x": {"field": "Country", "title": "Country"},
+    "y": {"field": "Value", "type": "quantitative", "title": "Value"},
+    "xOffset": {"field": "Variable"},
+    "color": {"field": "Variable"},
     "tooltip": [
-      {
-        "field": "Country",
-        "type": "ordinal",
-        "title": "Country"
-      },
+      {"field": "Country", "type": "ordinal", "title": "Country"},
       {
         "field": "Value",
         "type": "quantitative",
@@ -57,24 +35,12 @@
       },
       {
         "field": "Variable",
-        "type": "ordinal",
-        "title": "Variable",
-        "format": ","
+        "type": "nominal",
+        "title": "Variable"
       },
-      {
-        "field": "Year",
-        "type": "quantitative",
-        "title": "Year"
-      }
+      {"field": "Year", "type": "quantitative", "title": "Year"}
     ]
   },
-  "mark": {
-    "type": "bar"
-  },
-  "config": {
-    "title": {
-      "font": "sans-serif",
-      "fontSize": 16
-    }
-  }
+  "mark": {"type": "bar"},
+  "config": {"title": {"font": "sans-serif", "fontSize": 16}}
 }
