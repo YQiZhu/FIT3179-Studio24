@@ -3,7 +3,7 @@
     "data": {
         "url": "https://raw.githubusercontent.com/YQiZhu/FIT3179-Studio24/main/Assignment2/data/plastic-waste-generation-total.csv"
     },
-    "title": "Global Plastic Waste Generation (Tones) in 2010",
+    "title": "Global Plastic Waste Generation (Tons) in 2010",
     "width": "container",
     "height": 400,
     "projection": {
@@ -107,7 +107,7 @@
                     "legend": {
                         "format": "~s"
                     },
-                    "title": "Plastic waste generation in Tones"
+                    "title": "Plastic waste generation in Tons"
                 },
                 "tooltip": [
                     {
@@ -118,7 +118,7 @@
                     {
                         "field": "Plastic waste generation (tonnes, total)",
                         "type": "quantitative",
-                        "title": "Plastic waste generation in Tones"
+                        "title": "Plastic waste generation in Tons"
                     }
                 ]
             },
