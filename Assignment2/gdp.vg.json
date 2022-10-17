@@ -8,6 +8,11 @@
   "height": 500,
   "params": [
     {
+    "name": "view",
+    "select": "interval",
+    "bind": "scales"
+  },
+    {
       "name": "GDP_selection",
       "value": 0,
       "bind": {
