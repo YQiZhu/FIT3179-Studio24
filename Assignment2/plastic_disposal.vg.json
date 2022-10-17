@@ -6,6 +6,9 @@
     "data": {
         "url": "https://raw.githubusercontent.com/YQiZhu/FIT3179-Studio24/main/week10_homework/data/global-plastic-fate.csv"
     },
+    "transform": [
+        {"filter": "datum.Year >=2000"}
+    ],
     
     "mark": "area",
     "encoding": {
