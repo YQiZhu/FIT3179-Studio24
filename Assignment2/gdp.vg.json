@@ -89,12 +89,11 @@
     }
   },
   "layer": [
-    {
-    "name": "view",
-    "select": "interval",
-    "bind": "scales"
-  },
-    {
+    {"params": [{
+      "name": "view",
+      "select": "interval",
+      "bind": "scales"
+    }],
       "mark": {"type": "circle"},
       "encoding": {
         "color": {
