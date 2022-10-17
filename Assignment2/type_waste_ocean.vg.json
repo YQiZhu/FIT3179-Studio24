@@ -25,7 +25,8 @@
         },
         "color": {
             "field": "Entity",
-            "type": "nominal"
+            "type": "nominal",
+            "title": "Type of waste"
         },
         "tooltip": [
             {
