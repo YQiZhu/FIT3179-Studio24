@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {
-        "text": "Most common Waste find in River and Ocean (in %)",
+        "text": "Most common Waste find in River and Ocean (in %) in 2021",
         "color": "black"
     },
     "width": "container",
