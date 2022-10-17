@@ -1,0 +1,241 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Per capita Plastic Waste vs GDP per capita of Population in 2010",
+    "color": "black"
+  },
+  "width": "container",
+  "height": 500,
+  "params": [
+    {
+      "name": "GDP_selection",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 110000,
+        "step": 10000,
+        "name": "GDP per capita of population > :  "
+      }
+    },
+    {
+      "name": "waste_selection",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 0.6,
+        "step": 0.1,
+        "name": "Per capita plastic waste > :  "
+      }
+    },
+    {
+      "name": "Continents_selection",
+      "value": null,
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Asia",
+          "Europe",
+          "Africa",
+          "Oceania",
+          "North America",
+          "Antarctica",
+          "South America"
+        ],
+        "labels": [
+          "Show all",
+          "Asia",
+          "Europe",
+          "Africa",
+          "Oceania",
+          "North America",
+          "Antarctica",
+          "South America"
+        ],
+        "name": "Select Continents: "
+      }
+    }
+  ],
+  "data": {
+    "url": "https://raw.githubusercontent.com/YQiZhu/FIT3179-Studio24/main/Assignment2/data/capita%20plastic%20waste%20vs%20gdp%20(population).csv"
+  },
+  "transform": [
+    {"filter": "datum.GDP_per_capita > GDP_selection"},
+    {
+      "filter": "datum.Continent == Continents_selection || Continents_selection == null"
+    },
+    {"filter": "datum.Per_capita_plastic_waste_kg_person_day > waste_selection"}
+  ],
+  "encoding": {
+    "x": {
+      "field": "GDP_per_capita",
+      "type": "quantitative",
+      "axis": {"tickCount": 4, "labelFontSize": 12},
+      "scale": {
+        "type": "linear",
+        "domain": {"param": "GDP_selection"}
+        
+      },
+      "title": "GDP per capita of population"
+    },
+    "y": {
+      "field": "Per_capita_plastic_waste_kg_person_day",
+      "type": "quantitative",
+      "axis": {"tickCount": 4, "grid": false, "minExtent": 30},
+      "scale": {"domain": {"param": "waste_selection"}},
+      "title": "Per capita plastic waste (kg) per person per day"
+    }
+  },
+  "layer": [
+    {
+      "mark": {"type": "circle"},
+      "encoding": {
+        "color": {
+          "field": "Continent",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Asia",
+              "Europe",
+              "Africa",
+              "Oceania",
+              "North America",
+              "Antarctica",
+              "South America"
+            ],
+            "range": [
+              "#fdbe85",
+              "#800080",
+              "#00008B",
+              "#808000",
+              "#e6550d",
+              "#A0522D",
+              "#008B8B"
+            ]
+          }
+        },
+        "size": {
+          "field": "Population",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [10000, 100000, 1000000, 10000000, 100000000, 1000000000],
+            "range": [50, 100, 200, 300, 400, 600, 1000]
+          },
+          "legend":{"format":"~s"}
+        },
+        "tooltip": [
+          {"field": "Entity", "type": "nominal", "title": "Country"},
+          {
+            "field": "GDP_per_capita",
+            "type": "quantitative",
+            "title": "GDP per capita per person"
+          },
+          {
+            "field": "Per_capita_plastic_waste_kg_person_day",
+            "type": "quantitative",
+            "title": "Per capita plastic waste (kg) per person per day"
+          },
+          {"field": "Population", "type": "quantitative", "title": "Population"}
+        ]
+      }
+    },
+    {
+      "transform": [
+          {
+              "window": [
+                  {
+                      "op": "rank",
+                      "as": "ranking"
+                  }
+              ],
+              "sort": [
+                  {
+                      "field": "GDP_per_capita",
+                      "order": "descending"
+                  }
+              ]
+          },
+          {
+              "filter": "datum.ranking == 1"
+          },
+          {
+              "calculate": "'Macao has became; the higest GDP; per capita per person; with 118085 USD'",
+              "as": "text_annotation_raw"
+          },
+          {
+              "calculate": "split(datum.text_annotation_raw, ';')",
+              "as": "text_annotation"
+          }
+      ],
+      "encoding": {
+          "text": {
+              "field": "text_annotation"
+          },
+          "color": {
+              "value": "black"
+          }
+      },
+      "mark": {
+          "type": "text",
+          "align": "right",
+          "dx": 950,
+          "dy": 30,
+          "baseline": "middle",
+          "fontStyle": "italic",
+          "color": "black",
+          "fontSize": 16
+      }
+  },
+    {
+      "transform": [
+          {
+              "window": [
+                  {
+                      "op": "rank",
+                      "as": "ranking"
+                  }
+              ],
+              "sort": [
+                  {
+                      "field": "Per_capita_plastic_waste_kg_person_day",
+                      "order": "descending"
+                  }
+              ]
+          },
+          {
+              "filter": "datum.ranking == 1"
+          },
+          {
+              "calculate": "'Kuwait has became; the higest Per capita plastic; waste (kg) per person per day; with 0.69 kg'",
+              "as": "text_annotation_raw"
+          },
+          {
+              "calculate": "split(datum.text_annotation_raw, ';')",
+              "as": "text_annotation"
+          }
+      ],
+      "encoding": {
+          "text": {
+              "field": "text_annotation"
+          },
+          "color": {
+              "value": "black"
+          }
+      },
+      "mark": {
+          "type": "text",
+          "align": "right",
+          "dx": 240,
+          "dy": 40,
+          "baseline": "middle",
+          "fontStyle": "italic",
+          "color": "black",
+          "fontSize": 16
+      }
+  }
+  ],
+  "config": {"title": {"font": "sans-serif", "fontSize": 16},"legend": { "labelFontSize": 12, "titleFontSize":14}}
+}

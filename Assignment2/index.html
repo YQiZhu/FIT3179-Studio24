@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Plastic Waste </title>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+  <script src="mycode.js"></script>
+  <link href="style.css" type="text/css" media="all" rel="stylesheet">
+
+</head>
+
+<body>
+  <div class="page">
+    <h1 class="title" style="padding-top: 3%; font-size: 50px; color: black;">Global Plastic Waste</h1>
+    <hr>
+    <div>
+      <h2 class="subtitle">Introduction</h2>
+      <p class="bodytext">Waste is a
+        product of our lives. It is a waste product that has lost its use value and cannot be used, it is an
+        important part of material recycling. In some big cities, some type of waste disposal is a problem, for example,
+        <strong>plastic</strong>.
+      </p>
+      <p class="bodytext">
+        The common way is to collect and send the waste for landfill disposal, or to incinerate them in
+        incinerators. But both create environmental concerns. Waste disposal in landfills pollutes groundwater and emits
+        odors, and in many cities there
+        is less space available for landfills. And incineration inevitably produces toxic gases .
+      </p>
+    </div>
+    <hr>
+    <h2 class="subtitle" style="padding-top: 30px;"> Municipal Waste generate and treat</h2>
+    <div class="bobyvis">
+      <div style="width: 30%; padding-right: 50px; padding-top: 10px;text-align: left;">
+        <p class="bodytext">First of all, let's see some better manage waste data in the world. The graph on the right
+          shows the data of municipal waste production and disposal in various
+          countries of the world from 2010 to 2018. These municipal wastes include household and similar waste, bulky
+          waste and electric and electronic equipment waste. Most of these wastes are treated with recycling,
+          incineration energy recovery and landfill.</p>
+        <p class="bodytext">The data of some countries were not recorded in the early stage, so the generate/treat of
+          some countries' municipal wastes will be missing. But it is not difficult to see that only a small number of
+          countries'
+          municipal waste has not been completely treated. <strong> Which means these municipal wastes are
+            managed as almost all of them can be handled effectively</strong>.</p>
+      </div>
+      <div id="bar1" class="vis-container"></div>
+    </div>
+
+    <hr>
+    <h2 class="subtitle" style="padding-top: 30px;"> Plastic Waste</h2>
+    <p class="bodytext">What about plastic waste? Is it been treated or recovery? The map below shows the world's
+      plastic waste production in 2010.
+      These limited figures add up to more than 270 million tons. But can so much plastic waste be effectively treated?
+      The three main types of plastic waste disposal are shown in the area chart below. It can be seen that with the
+      beginning of 1980, the disposal of discarded plastic waste has decreased, and the recycled and incinerated have
+      increased. But until 2015, <strong> up to 55% of plastic waste was still using discarded disposal</strong>.</p>
+    <div class="bobyvis">
+      <div id="map2" class="vis-container"></div>
+      <div id="bar2" style="width: 40%;"></div>
+    </div>
+
+    <hr>
+    <h2 class="subtitle" style="padding-top: 30px;"> Per capita Plastic Waste vs GDP in 2010</h2>
+    <p class="bodytext">The bubble chart below shows the population, GDP and per capita plastic waste production by
+      country in 2019.
+      It can be seen from the figure that the GDP and per capita production of plastic waste in countries with large
+      populations are not high. <strong> Countries with high GDP also have high production per capita. Seen like
+        population
+        is not the main cause of the large amount of plastic waste</strong>.</p>
+    <p class="bodytext">Kuwait has the higest per capita plastic waste (kg) per person per day. And Macao has the
+      highest GDP per capita per person</p>
+    <div class="bobyvis">
+      <div id="bubblechart" class="vis-container"></div>
+    </div>
+
+    <hr>
+    <h2 class="subtitle" style="padding-top: 30px;"> Marine debris</h2>
+    <div class="bobyvis">
+      <div style="width: 40%; padding-right: 50px; text-align: left;">
+        <p class="bodytext">So what to do with the discarded plastic waste? This discarded waste will send to the ocean
+          and
+          becomes marine debris. Plastics are difficult to biodegrade and form an important part of marine debris. Some
+          of
+          these human-made and refining wastes stay on the beach, and some float on the ocean surface or
+          sink
+          to the ocean.</p>
+        <p class="bodytext">The map on the right shows the percentage of plastic waste the world sends to the ocean. It
+          can be seen that although countries with high GDP such as the United States and Germany are relatively ahead
+          in the production of plastic waste, the rate of emitted plastic waste to the ocean is indeed very low. But
+          this is <strong> not because these countries have good waste disposal technology, they export waste to
+            other countries, specialy Asian countries</strong>, such as China. However, China has stopped accepting
+          plastic waste imports since 2017.</p>
+      </div>
+      <div id="map1" class="vis-container"></div>
+    </div>
+    <hr>
+    <h2 class="subtitle" style="padding-top: 30px;">Waste find in River and Ocean</h2>
+    <div style="text-align: left;">
+      <p class="bodytext">Marine debris is poisoning the ocean and the species that live
+        rely on ocean. Many news reports of marine life deaths, starvation and drowning due to accidental
+        ingestion of plastic debris. The most common types of plastic waste in the ocean are listed in the radial plot
+        on the left. And this plastic waste will also end
+        up in the seafood we eat and hide in our body.</p>
+    </div>
+    <div class="bobyvis">
+      <div id="radial" class="vis-container"></div>
+      <div style="width:70%; height: 50%;">
+        <figure>
+          <img
+            src="https://www.pewtrusts.org/-/media/post-launch-images/2018/09/plastics_ocean_0924_2/16x9_s.jpg?mw=1290&hash=229140B2DF3795C79E395871CFA821C1">
+          <figcaption style="font-style: italic;">A dead albatross with full of plastic debris in the stomach.
+          </figcaption>
+        </figure>
+        <figure style="padding-top: 5px;">
+          <img
+            src="https://www.pewtrusts.org/-/media/post-launch-images/2018/09/plastics-oceans-0924_5/16x9_m.jpg?mw=1290&hash=8F718DC03C4BCF977788246BC7CCE50E">
+          <figcaption style="font-style: italic;">A fish surrounded by plastic tape.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+    <p class="bodytext">
+      <strong>The bags (14.06% of the total waste found) are the most common waste found in the ocean and river</strong>
+      ,
+      while plastic bottles are the second most waste (11.89%). Drink canns were not found that common, ranking last
+      (3.17%)
+      in the top 10 most common waste find in river and ocean.
+    </p>
+
+    <hr>
+    <h2 class="subtitle" style="padding-top: 30px;">Marine Debris Decomposition Time</h2>
+    <div class="bobyvis">
+      <div style="width: 50%; padding-right: 50px; padding-top: 10px;text-align: left;">
+        <p class="bodytext">It takes many years for this marine debris to decomposition into the ocean. The graph on the
+          right
+          shows how long it takes for some of the most common marine debris to decomposition in the ocean. The fishing
+          lines
+          taking the longest to decomposition, which is <strong>600 years</strong>. The decomposition time of plastic
+          bottle, disposable
+          diaper
+          and plastic beverage also <strong>hold longer than 400 years</strong>.</p>
+        <p class="bodytext">A large amount of marine debris has accumulated because it
+          takes too long to decompose. The marine debris in the Pacific Ocean alone has reached more than 3 million
+          square kilometers, even more than the land area of India. A huge plastic-dominated "garbage patch" has
+          formed in the Pacific Ocean. If we don't do somthing, the oceans will no longer be able to keep up with the
+          vast amount of marine debris, and we are not gointg to survive either if we lost our ocean. We should
+          strengthen public awareness of environmental protection and reduce the use of plastics and single-use products
+          as much as possible.</p>
+
+      </div>
+      <div>
+        <div id="isotype" style="width: 50%;"></div>
+        <p class="bodytext" , style="text-align: center;">Each of 📅 represent 50 Years </p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script type="text/javascript">
+
+    var spec1 = "decomposition.vg.json";
+    vegaEmbed('#isotype', spec1).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+    var spec2 = "type_waste_ocean.vg.json";
+    vegaEmbed('#radial', spec2).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+    var spec3 = "plastic_disposal.vg.json";
+    vegaEmbed('#bar2', spec3).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+    var spec4 = "plastic_waste.vg.json";
+    vegaEmbed('#map2', spec4).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+    var spec5 = "gdp.vg.json";
+    vegaEmbed('#bubblechart', spec5).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+    var spec6 = "waste_generated_treated.vg.json";
+    vegaEmbed('#bar1', spec6).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+    var spec7 = "waste.vg.json";
+    vegaEmbed('#map1', spec7).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+  </script>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,230 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Municipal Waste Generated vs Treated (in Tonnes)",
+    "color": "black"
+  },
+  "width": "container",
+  "height": 450,
+  "params": [
+    {
+      "name": "Year_selection",
+      "value": 2018,
+      "bind": {
+        "input": "range",
+        "min": 2010,
+        "max": 2018,
+        "step": 1,
+        "name": "Year :  "
+      }
+    }
+  ],
+  "data": {
+    "url": "https://raw.githubusercontent.com/YQiZhu/FIT3179-Studio24/main/Assignment2/data/waste%20generated%20vs%20treated%20(tones).csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.Year == Year_selection"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "bar"
+      },
+      "encoding": {
+        "y": {
+          "field": "Country",
+          "type": "ordinal",
+          "sort": "-x"
+        },
+        "x": {
+          "aggregate": "sum",
+          "field": "Value",
+          "type": "quantitative"
+        },
+        "yOffset": {
+          "field": "Variable"
+        },
+        "color": {
+          "field": "Variable"
+        },
+        "tooltip": [
+          {
+            "field": "Country",
+            "type": "ordinal",
+            "title": "Country"
+          },
+          {
+            "field": "Value",
+            "type": "quantitative",
+            "title": "Value (in Tonnes)",
+            "format": ","
+          },
+          {
+            "field": "Variable",
+            "type": "nominal",
+            "title": "Variable"
+          },
+          {
+            "field": "Year",
+            "type": "quantitative",
+            "title": "Year"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "window": [
+            {
+              "op": "rank",
+              "as": "ranking"
+            }
+          ],
+          "sort": [
+            {
+              "field": "Value",
+              "order": "descending"
+            }
+          ]
+        },
+        {
+          "filter": "datum.ranking == 1"
+        },
+        {
+          "calculate": "'United States has the highest; waste generation & treat; in 2010 to 2018'",
+          "as": "text_annotation_raw"
+        },
+        {
+          "calculate": "split(datum.text_annotation_raw, ';')",
+          "as": "text_annotation"
+        }
+      ],
+      "encoding": {
+        "text": {
+          "field": "text_annotation"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": 200,
+        "dy": -180,
+        "baseline": "middle",
+        "fontStyle": "italic",
+        "color": "black",
+        "fontSize": 16
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": " 2018> Year_selection"
+        },
+        {
+          "window": [
+            {
+              "op": "rank",
+              "as": "ranking"
+            }
+          ]
+        },
+        {
+          "filter": "datum.ranking == 2"
+        },
+        {
+          "calculate": "'China is the second highest; waste generation; in 2010 to 2017'",
+          "as": "text_annotation_raw"
+        },
+        {
+          "calculate": "split(datum.text_annotation_raw, ';')",
+          "as": "text_annotation"
+        }
+      ],
+      "encoding": {
+        "text": {
+          "field": "text_annotation"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": 60,
+        "dy": -100,
+        "baseline": "middle",
+        "fontStyle": "italic",
+        "color": "black",
+        "fontSize": 16
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": " 2018== Year_selection"
+        },
+        {
+          "window": [
+            {
+              "op": "rank",
+              "as": "ranking"
+            }
+          ]
+        },
+        {
+          "filter": "datum.ranking == 2"
+        },
+        {
+          "calculate": "'Germany became the second; highest waste generate/treat; in 2018 as China data; for 2018 was not available'",
+          "as": "text_annotation_raw"
+        },
+        {
+          "calculate": "split(datum.text_annotation_raw, ';')",
+          "as": "text_annotation"
+        }
+      ],
+      "encoding": {
+        "text": {
+          "field": "text_annotation"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": 60,
+        "dy": -100,
+        "baseline": "middle",
+        "fontStyle": "italic",
+        "color": "black",
+        "fontSize": 16
+      }
+    }
+  ],
+  "config": {
+    "text": {
+      "fontWeight": "normal"
+    },
+    "title": {
+      "font": "sans-serif",
+      "fontSize": 16
+    },
+    "view": {
+      "stroke": ""
+    },
+    "legend": {
+      "orient": "bottom-right",
+      "labelFontSize": 12,
+      "titleFontSize": 14
+    }
+  }
+}

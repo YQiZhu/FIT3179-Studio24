@@ -1,0 +1,89 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Decomposition Rate of Marine Debris over 50 Years",
+    "color": "black"
+  },
+  "width": 400,
+  "height": 10,
+  "data": {
+    "url": "https://raw.githubusercontent.com/YQiZhu/FIT3179-Studio24/main/Assignment2/data/decomposition-rates-marine-debris.csv"
+  },
+  "transform": [
+    {
+      "calculate": "{Yes: '📅'}[datum.Plastic]",
+      "as": "emoji"
+    },
+    {
+      "window": [
+        {
+          "op": "rank",
+          "as": "rank"
+        }
+      ],
+      "groupby": [
+        "Entity",
+        "Plastic"
+      ]
+    }
+  ],
+  "mark": {
+    "type": "text",
+    "baseline": "middle"
+  },
+  "encoding": {
+    "x": {
+      "field": "rank",
+      "type": "ordinal",
+      "axis": null
+    },
+    "y": {
+      "field": "Plastic",
+      "type": "nominal",
+      "axis": null,
+      "sort": null
+    },
+    "row": {
+      "field": "Entity",
+      "header": {
+        "title": "",
+        "labelAngle": 0,
+        "labelAlign": "left",
+        "labelFontSize":12
+      }
+    },
+    "text": {
+      "field": "emoji",
+      "type": "nominal"
+    },
+    "size": {
+      "value": 30
+    },
+    "tooltip": [
+      {
+        "field": "Entity",
+        "type": "nominal",
+        "title": "Type of waste"
+      },
+      {
+        "field": "Decomposition",
+        "type": "quantitative",
+        "title": "Years of decomposition"
+      }
+    ]
+  },
+  "config": {
+    "title": {
+      "font": "sans-serif",
+      "fontSize": 16,
+      "align": "center"
+    },
+    "view": {
+      "stroke": ""
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 14
+    }
+  }
+}

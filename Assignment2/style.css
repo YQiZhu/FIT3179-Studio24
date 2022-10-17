@@ -1,0 +1,78 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+  font-family: sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 700;
+}
+
+hr {
+  border: none;
+  height: 3px;
+  /* Set the hr color */
+  color: rgb(0, 0, 0); /* old IE */
+  background-color: rgb(0, 0, 0); /* Modern Browsers */
+}
+
+figcaption {
+  font-size: 12;
+  margin-top: 0.5em;
+  font-family: sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+* {
+  font-family: sans-serif;
+}
+
+.subtitle {
+  font-size: 30px;
+  color: black;
+  font-family: sans-serif;
+  font-weight: 550;
+}
+
+.vis-container {
+  width: 100%;
+}
+
+.column-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bobyvis {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bodytext {
+  font-family: sans-serif;
+  text-align: justify;
+  text-justify: inter-word;
+  width: 100%;
+  font-family: sans-serif;
+  font-size: 18px;
+}
+
+.page {
+  margin: auto;
+  padding-left: 15%;
+  padding-right: 15%;
+  padding-bottom: 5%;
+}
+
+.descriptipn {
+  display: inline-block;
+}

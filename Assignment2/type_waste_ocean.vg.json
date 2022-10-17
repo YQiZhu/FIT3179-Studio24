@@ -1,0 +1,77 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+        "text": "Most common Waste find in River and Ocean (in %)",
+        "color": "black"
+    },
+    "width": "container",
+    "height": 600,
+    "data": {
+        "url": "https://raw.githubusercontent.com/YQiZhu/FIT3179-Studio24/main/Assignment2/data/most-common-waste-rivers-oceans.csv"
+    },
+    "encoding": {
+        "theta": {
+            "field": "Share of aquatic waste",
+            "type": "quantitative",
+            "stack": true
+        },
+        "radius": {
+            "field": "Share of aquatic waste",
+            "scale": {
+                "type": "sqrt",
+                "zero": true,
+                "rangeMin": 20
+            }
+        },
+        "color": {
+            "field": "Entity",
+            "type": "nominal"
+        },
+        "tooltip": [
+            {
+                "field": "Entity",
+                "type": "nominal",
+                "title": "Type of waste"
+            },
+            {
+                "field": "Share of aquatic waste",
+                "type": "quantitative",
+                "title": "% of type of waste found",
+                "format":".2f"
+                
+            }
+        ]
+    },
+    "layer": [
+        {
+            "mark": {
+                "type": "arc",
+                "outerRadius": 20,
+                "stroke": "#fff"
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "radiusOffset": 10
+            },
+            "encoding": {
+                "text": {
+                    "field": "Share of aquatic waste",
+                    "type": "quantitative",
+                    "format": ".2f"
+                }
+            }
+            
+        }
+    ],
+    "config": {
+        "title": {
+            "font": "sans-serif",
+            "fontSize": 16
+        },"legend": {
+            "labelFontSize": 12,
+            "titleFontSize": 14
+          }
+    }
+}

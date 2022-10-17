@@ -1,0 +1,53 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Global Plastic Waste by Disposal(%), 2000 to 2015",
+    "width": 400,
+    "height": 400,
+    "data": {
+        "url": "https://raw.githubusercontent.com/YQiZhu/FIT3179-Studio24/main/week10_homework/data/global-plastic-fate.csv"
+    },
+    
+    "mark": "area",
+    "encoding": {
+        "x": {
+            "field":"Estimated historic plastic fate" ,
+            "type": "quantitative",
+            "title": "% of disposal type"
+        },
+        "y": {
+            "field": "Year",
+            "type":"ordinal",
+            "sort":"-y"
+        },
+        "color":{
+            "field":"Entity", 
+            "type": "nominal",
+            "title": "Type of Disposal for plastic"
+        },
+        "tooltip": [
+            {
+                "field": "Entity",
+                "type": "nominal",
+                "title": "Type of waste"
+            },
+            {
+                "field": "Estimated historic plastic fate",
+                "type": "quantitative",
+                "title": "Estimated historic plastic fate",
+                "format": ","
+            },
+            {
+                "field": "Year",
+                "type": "ordinal",
+                "title": "Year"
+            }
+        ]
+    },
+    "config": {
+        "title": {
+            "font": "sans-serif",
+            "fontSize": 16
+        },
+        "legend": {"orient":"bottom","labelFontSize":11}
+    }
+}

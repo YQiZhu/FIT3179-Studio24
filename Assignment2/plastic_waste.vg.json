@@ -1,0 +1,242 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "url": "https://raw.githubusercontent.com/YQiZhu/FIT3179-Studio24/main/Assignment2/data/plastic-waste-generation-total.csv"
+    },
+    "title": "Global Plastic Waste Generation (Tones) in 2010",
+    "width": "container",
+    "height": 400,
+    "projection": {
+        "type": "equalEarth"
+    },
+    "layer": [
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/YQiZhu/FIT3179-Studio24/main/Assignment2/data/ne_110m.json",
+                "format": {
+                    "type": "topojson",
+                    "feature": "ne_110m_admin_0_countries"
+                }
+            },
+            "transform": [
+                {
+                    "calculate": "'Data is not available in ' + datum.properties.NAME",
+                    "as": "note"
+                }
+            ],
+            "mark": {
+                "type": "geoshape",
+                "fill": "lightgray",
+                "stroke": "black"
+            },
+            "encoding": {
+                "tooltip": {
+                    "field": "note"
+                }
+            }
+        },
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/7_others/oceans.topojson",
+                "format": {
+                    "type": "topojson",
+                    "feature": "oceans"
+                }
+            },
+            "mark": {
+                "type": "geoshape",
+                "fill": "skyblue"
+            }
+        },
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/YQiZhu/FIT3179-Studio24/main/Assignment2/data/ne_110m.json",
+                "format": {
+                    "type": "topojson",
+                    "feature": "ne_110m_graticules_30"
+                }
+            },
+            "mark": {
+                "type": "geoshape",
+                "fill": null,
+                "stroke": "lightgrey"
+            }
+        },
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/YQiZhu/FIT3179-Studio24/main/Assignment2/data/ne_110m.json",
+                "format": {
+                    "type": "topojson",
+                    "feature": "ne_110m_admin_0_countries"
+                }
+            },
+            "transform": [
+                {
+                    "lookup": "properties.NAME",
+                    "from": {
+                        "data": {
+                            "url": "https://raw.githubusercontent.com/YQiZhu/FIT3179-Studio24/main/Assignment2/data/plastic-waste-generation-total.csv"
+                        },
+                        "key": "Entity",
+                        "fields": [
+                            "Plastic waste generation (tonnes, total)"
+                        ]
+                    }
+                }
+            ],
+            "encoding": {
+                "color": {
+                    "field": "Plastic waste generation (tonnes, total)",
+                    "type": "quantitative",
+                    "scale": {
+                        "type": "threshold",
+                        "domain": [
+                            1000000,
+                            10000000,
+                            20000000,
+                            30000000
+                        ],
+                        "range": [
+                            "#BFCDE0",
+                            "#8EA1C6",
+                            "#5D5D81",
+                            "#3B3355",
+                            "#000505"
+                        ]
+                    },
+                    "legend": {
+                        "format": "~s"
+                    },
+                    "title": "Plastic waste generation in Tones"
+                },
+                "tooltip": [
+                    {
+                        "field": "properties.NAME",
+                        "type": "nominal",
+                        "title": "Country"
+                    },
+                    {
+                        "field": "Plastic waste generation (tonnes, total)",
+                        "type": "quantitative",
+                        "title": "Plastic waste generation in Tones"
+                    }
+                ]
+            },
+            "layer": [
+                {
+                    "mark": {
+                        "type": "geoshape",
+                        "stroke": "black"
+                    }
+                },
+                {
+                    "transform": [
+                        {
+                            "window": [
+                                {
+                                    "op": "rank",
+                                    "as": "ranking"
+                                }
+                            ],
+                            "sort": [
+                                {
+                                    "field": "Plastic waste generation (tonnes, total)",
+                                    "order": "descending"
+                                }
+                            ]
+                        },
+                        {
+                            "filter": "datum.ranking == 2"
+                        },
+                        {
+                            "calculate": "'United States has became; the second higest plastic; waste generated country'",
+                            "as": "text_annotation_raw"
+                        },
+                        {
+                            "calculate": "split(datum.text_annotation_raw, ';')",
+                            "as": "text_annotation"
+                        }
+                    ],
+                    "encoding": {
+                        "text": {
+                            "field": "text_annotation"
+                        },
+                        "color": {
+                            "value": "black"
+                        }
+                    },
+                    "mark": {
+                        "type": "text",
+                        "align": "right",
+                        "dx": -200,
+                        "dy": -35,
+                        "baseline": "middle",
+                        "fontStyle": "italic",
+                        "color": "black",
+                        "fontSize": 16
+                    }
+                },
+                {
+                    "transform": [
+                        {
+                            "window": [
+                                {
+                                    "op": "rank",
+                                    "as": "ranking"
+                                }
+                            ],
+                            "sort": [
+                                {
+                                    "field": "Plastic waste generation (tonnes, total)",
+                                    "order": "descending"
+                                }
+                            ]
+                        },
+                        {
+                            "filter": "datum.ranking == 1"
+                        },
+                        {
+                            "calculate": "'China has became; the higest plastic waste; generated country'",
+                            "as": "text_annotation_raw"
+                        },
+                        {
+                            "calculate": "split(datum.text_annotation_raw, ';')",
+                            "as": "text_annotation"
+                        }
+                    ],
+                    "encoding": {
+                        "text": {
+                            "field": "text_annotation"
+                        },
+                        "color": {
+                            "value": "black"
+                        }
+                    },
+                    "mark": {
+                        "type": "text",
+                        "align": "right",
+                        "dx": 240,
+                        "dy": 40,
+                        "baseline": "middle",
+                        "fontStyle": "italic",
+                        "color": "black",
+                        "fontSize": 16
+                    }
+                }
+            ]
+        }
+    ],
+    "config": {
+        "text": {
+            "color": "black"
+        },
+        "title": {
+            "font": "sans-serif",
+            "fontSize": 16
+        },
+        "legend": {
+            "orient": "bottom",
+            "labelFontSize": 11
+        }
+    }
+}
